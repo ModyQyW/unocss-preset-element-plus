@@ -1,0 +1,95 @@
+{
+  "name": "unocss-preset-element-plus",
+  "version": "0.0.0",
+  "description": "unocss + element-plus",
+  "keywords": [
+    "unocss",
+    "preset",
+    "element-plus"
+  ],
+  "homepage": "https://github.com/ModyQyW/unocss-preset-element-plus",
+  "bugs": {
+    "url": "https://github.com/ModyQyW/unocss-preset-element-plus/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ModyQyW/unocss-preset-element-plus.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "ModyQyW",
+    "email": "wurui-dev@foxmail.com",
+    "url": "https://github.com/ModyQyW"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "check:deps": "taze",
+    "check:types": "tsc --noEmit",
+    "commit": "git-cz",
+    "dev": "unbuild --stub",
+    "lint": "concurrently \"pnpm:lint:eslint\" \"pnpm:lint:markdownlint\" \"pnpm:lint:publint\"",
+    "lint:eslint": "eslint . --fix --cache --ignore-path=.gitignore",
+    "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
+    "lint:publint": "publint",
+    "prepare": "is-ci || husky install",
+    "prepublishOnly": "pnpm run build",
+    "release": "commit-and-tag-version",
+    "test": "vitest run --coverage"
+  },
+  "dependencies": {
+    "unocss": "^0.51.8",
+    "unocss-preset-theme": "^0.6.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/prompt": "^17.5.0",
+    "@modyqyw/fabric": "^7.5.0",
+    "@tsconfig/node18": "^1.0.1",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "@vitest/coverage-c8": "^0.30.1",
+    "@vitest/ui": "^0.30.1",
+    "c8": "^7.13.0",
+    "commit-and-tag-version": "^11.2.1",
+    "commitizen": "^4.3.0",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.37.0",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^13.2.0",
+    "markdownlint-cli": "^0.33.0",
+    "prettier": "^2.8.7",
+    "publint": "^0.1.11",
+    "sort-package-json": "^2.4.1",
+    "taze": "^0.9.1",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.1",
+    "vitest": "^0.30.1"
+  },
+  "peerDependencies": {
+    "unocss": "^0.51.0"
+  },
+  "packageManager": "pnpm@8.3.1",
+  "engines": {
+    "node": ">=14.18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
