@@ -47,7 +47,7 @@
     "lint:publint": "publint",
     "prepare": "is-ci || husky install",
     "prepublishOnly": "pnpm run build",
-    "release": "commit-and-tag-version",
+    "release": "commit-and-tag-version -a",
     "test": "vitest run --coverage"
   },
   "dependencies": {
