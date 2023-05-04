@@ -20,3 +20,5 @@ export const generate = (color: ColorInput, lightenColor: ColorInput, darkenColo
     ),
   };
 };
+
+export const convert = (color: ColorInput) => new TinyColor(color).toHexString();

@@ -1,113 +1,65 @@
+import { presetTheme } from 'unocss-preset-theme';
 import type { Preset } from 'unocss';
 import type { Theme } from 'unocss/preset-mini';
-import { presetTheme, type PresetThemeOptions } from 'unocss-preset-theme';
-import { type ColorInput } from '@ctrl/tinycolor';
-import { light } from './light';
-import { dark } from './dark';
+import { getLightTheme } from './light';
+import { getDarkTheme } from './dark';
+import type { PresetElementPlusThemeOptions, PresetElementPlusUserOptions } from './types';
 
-export interface PresetElementPlusOptions extends Omit<PresetThemeOptions<Theme>, 'theme'> {
-  /**
-   * Used to generate light theme light colors
-   *
-   * @default white
-   */
-  lightLightenColor?: ColorInput;
-  /**
-   * Used to generate light theme dark colors
-   *
-   * @default black
-   */
-  lightDarkenColor?: ColorInput;
-  /**
-   * Used to generate dark theme light colors
-   *
-   * @default #141414
-   */
-  darkLightenColor?: ColorInput;
-  /**
-   * Used to generate dark theme light colors
-   *
-   * @default white
-   */
-  darkDarkenColor?: ColorInput;
-  /**
-   * Base primary color
-   *
-   * @default #409eff
-   */
-  primary?: ColorInput;
-  /**
-   * Base success color
-   *
-   * @default #67c23a
-   */
-  success?: ColorInput;
-  /**
-   * Base warning color
-   *
-   * @default #e6a23c
-   */
-  warning?: ColorInput;
-  /**
-   * Base error color
-   *
-   * @default #f56c6c
-   */
-  error?: ColorInput;
-  /**
-   * Base danger color
-   *
-   * @default #f56c6c
-   */
-  danger?: ColorInput;
-  /**
-   * Base info color
-   *
-   * @default #909399
-   */
-  info?: ColorInput;
-}
-
-export function presetElementPlus(options: PresetElementPlusOptions = {}): Preset<Theme> {
+export function presetElementPlus(options: PresetElementPlusUserOptions = {}): Preset<Theme> {
   const {
     prefix = '--un-preset-el',
     selectors,
-    lightLightenColor = 'white',
-    lightDarkenColor = 'black',
-    darkLightenColor = '#141414',
-    darkDarkenColor = 'white',
+
     primary = '#409eff',
     success = '#67c23a',
     warning = '#e6a23c',
     error = '#f56c6c',
     danger = '#f56c6c',
     info = '#909399',
+
+    light,
+    dark,
   } = options;
+
+  const commonOptions = {
+    primary,
+    success,
+    warning,
+    error,
+    danger,
+    info,
+  };
+
+  const lightThemeOptions: PresetElementPlusThemeOptions = {
+    ...commonOptions,
+    lightenColor: 'white',
+    darkenColor: 'black',
+    primaryText: '#303133',
+    regularText: '#606266',
+    secondaryText: '#909399',
+    placeholderText: '#a8abb2',
+    disabledText: '#c0c4cc',
+    ...light,
+  };
+
+  const darkThemeOptions: PresetElementPlusThemeOptions = {
+    ...commonOptions,
+    lightenColor: '#141414',
+    darkenColor: 'white',
+    primaryText: '#e5eaf3',
+    regularText: '#cfd3dc',
+    secondaryText: '#a3a6ad',
+    placeholderText: '#8d9095',
+    disabledText: '#6c6e72',
+    ...dark,
+  };
 
   return presetTheme<Theme>({
     prefix,
     selectors,
     theme: {
-      light: light({
-        lightenColor: lightLightenColor,
-        darkenColor: lightDarkenColor,
-        primary,
-        success,
-        warning,
-        error,
-        danger,
-        info,
-      }),
-      dark: dark({
-        lightenColor: darkLightenColor,
-        darkenColor: darkDarkenColor,
-        primary,
-        success,
-        warning,
-        error,
-        danger,
-        info,
-      }),
+      light: getLightTheme(lightThemeOptions),
+      dark: getDarkTheme(darkThemeOptions),
     },
   });
 }
