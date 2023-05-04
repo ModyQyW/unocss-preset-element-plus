@@ -45,7 +45,7 @@
     "lint:eslint": "eslint . --fix --cache --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "lint:publint": "publint",
-    "prepare": "is-ci || husky install",
+    "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
     "release": "commit-and-tag-version -a",
     "test": "vitest run --coverage"
@@ -76,6 +76,7 @@
     "markdownlint-cli": "^0.34.0",
     "prettier": "^2.8.8",
     "publint": "^0.1.11",
+    "simple-git-hooks": "^2.8.1",
     "sort-package-json": "^2.4.1",
     "taze": "^0.10.1",
     "typescript": "^5.0.4",
