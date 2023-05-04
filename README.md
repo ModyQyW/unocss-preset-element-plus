@@ -40,21 +40,7 @@ This option is extended from [unocss-preset-theme](https://github.com/Dunqing/un
 
 This option is extended from [unocss-preset-theme](https://github.com/Dunqing/unocss-preset-theme) and use its default value.
 
-### lightLightenColor
-
-Used to generate light theme light colors. Defaults to `white`.
-
-### lightDarkenColor
-
-Used to generate light theme dark colors. Defaults to `black`.
-
-### darkLightenColor
-
-Used to generate dark theme light colors. Defaults to `#141414`.
-
-### darkDarkenColor
-
-Used to generate dark theme dark colors. Defaults to `white`.
+You may need to update this field when you are developing with `uni-app`, `taro`, etc.
 
 ### primary
 
@@ -79,3 +65,35 @@ Base danger color. Defaults to `#f56c6c`.
 ### info
 
 Base info color. Defaults to `#909399`.
+
+### light & dark
+
+Light / Dark theme config.
+
+#### lightenColor
+
+Used to generate theme light colors. By default `white` for light theme, `#141414` for dark theme.
+
+#### darkenColor
+
+Used to generate theme dark colors. By default `black` for light theme, `white` for dark theme.
+
+#### primaryText
+
+Primary text color. By default `#303133` for light theme, `#e5eaf3` for dark theme.
+
+#### regularText
+
+Regular text color. By default `#606266` for light theme, `#cfd3dc` for dark theme.
+
+#### secondaryText
+
+Secondary text color. By default `#909399` for light theme, `#a3a6ad` for dark theme.
+
+#### placeholderText
+
+Placeholder text color. By default `#a8abb2` for light theme, `#8d9095` for dark theme.
+
+#### disabledText
+
+Disabled text color. By default `#c0c4cc` for light theme, `#6c6e72` for dark theme.
