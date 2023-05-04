@@ -2,7 +2,7 @@
 
 **WIP**
 
-This preset will help you make [element-plus](https://element-plus.org/) and [unocss](https://unocss.dev/) work together. Based on [unocss-perset-theme](https://github.com/Dunqing/unocss-preset-theme).
+This preset will help you make [element-plus](https://element-plus.org/) and [unocss](https://unocss.dev/) work together. Based on [unocss-preset-theme](https://github.com/Dunqing/unocss-preset-theme).
 
 ## Installation
 
@@ -34,11 +34,11 @@ You can a options object to the preset.
 
 ### prefix
 
-This option is extended from [unocss-perset-theme](https://github.com/Dunqing/unocss-preset-theme). Defaults to `--un-preset-el`.
+This option is extended from [unocss-preset-theme](https://github.com/Dunqing/unocss-preset-theme). Defaults to `--un-preset-el`.
 
 ### selectors
 
-This option is extended from [unocss-perset-theme](https://github.com/Dunqing/unocss-preset-theme) and use its default value.
+This option is extended from [unocss-preset-theme](https://github.com/Dunqing/unocss-preset-theme) and use its default value.
 
 ### lightLightenColor
 
