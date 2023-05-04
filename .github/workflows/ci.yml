@@ -21,6 +21,7 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: corepack enable
       - run: pnpm install --no-frozen-lockfile
+      - run: pnpm run build
       - run: pnpm run lint
 
   typecheck:
