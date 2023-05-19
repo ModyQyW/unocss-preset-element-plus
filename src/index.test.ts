@@ -3,9 +3,74 @@ import { describe, expect, test } from 'vitest';
 import { presetElementPlus } from '.';
 
 describe('theme', () => {
-  test('theme colors', async () => {
+  test('theme colors with css variables', async () => {
     const uno = createGenerator({
       presets: [presetUno(), presetElementPlus()],
+    });
+    const themeColors = ['primary', 'success', 'warning', 'error', 'danger', 'info'];
+    const steps = [
+      '',
+      ...Array.from({ length: 9 }).flatMap((_, index) => [
+        `light-${index + 1}`,
+        `dark-${index + 1}`,
+      ]),
+    ];
+    const targets = themeColors.flatMap((themeColor) =>
+      steps.flatMap((step) => (step ? `text-${themeColor}-${step}` : `text-${themeColor}`)),
+    );
+    const { css } = await uno.generate(targets.join('\n'));
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: preflights */
+      *,::before,::after{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 rgba(0,0,0,0);--un-ring-shadow:0 0 rgba(0,0,0,0);--un-shadow-inset: ;--un-shadow:0 0 rgba(0,0,0,0);--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,0.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: ;}::backdrop{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 rgba(0,0,0,0);--un-ring-shadow:0 0 rgba(0,0,0,0);--un-shadow-inset: ;--un-shadow:0 0 rgba(0,0,0,0);--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,0.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: ;}
+      /* layer: default */
+      .text-danger{color:var(--el-color-danger);}
+      .text-danger-dark-2{color:var(--el-color-danger-dark-2);}
+      .text-danger-light-3{color:var(--el-color-danger-light-3);}
+      .text-danger-light-5{color:var(--el-color-danger-light-5);}
+      .text-danger-light-7{color:var(--el-color-danger-light-7);}
+      .text-danger-light-8{color:var(--el-color-danger-light-8);}
+      .text-danger-light-9{color:var(--el-color-danger-light-9);}
+      .text-error{color:var(--el-color-error);}
+      .text-error-dark-2{color:var(--el-color-error-dark-2);}
+      .text-error-light-3{color:var(--el-color-error-light-3);}
+      .text-error-light-5{color:var(--el-color-error-light-5);}
+      .text-error-light-7{color:var(--el-color-error-light-7);}
+      .text-error-light-8{color:var(--el-color-error-light-8);}
+      .text-error-light-9{color:var(--el-color-error-light-9);}
+      .text-info{color:var(--el-color-info);}
+      .text-info-dark-2{color:var(--el-color-info-dark-2);}
+      .text-info-light-3{color:var(--el-color-info-light-3);}
+      .text-info-light-5{color:var(--el-color-info-light-5);}
+      .text-info-light-7{color:var(--el-color-info-light-7);}
+      .text-info-light-8{color:var(--el-color-info-light-8);}
+      .text-info-light-9{color:var(--el-color-info-light-9);}
+      .text-primary{color:var(--el-color-primary);}
+      .text-primary-dark-2{color:var(--el-color-primary-dark-2);}
+      .text-primary-light-3{color:var(--el-color-primary-light-3);}
+      .text-primary-light-5{color:var(--el-color-primary-light-5);}
+      .text-primary-light-7{color:var(--el-color-primary-light-7);}
+      .text-primary-light-8{color:var(--el-color-primary-light-8);}
+      .text-primary-light-9{color:var(--el-color-primary-light-9);}
+      .text-success{color:var(--el-color-success);}
+      .text-success-dark-2{color:var(--el-color-success-dark-2);}
+      .text-success-light-3{color:var(--el-color-success-light-3);}
+      .text-success-light-5{color:var(--el-color-success-light-5);}
+      .text-success-light-7{color:var(--el-color-success-light-7);}
+      .text-success-light-8{color:var(--el-color-success-light-8);}
+      .text-success-light-9{color:var(--el-color-success-light-9);}
+      .text-warning{color:var(--el-color-warning);}
+      .text-warning-dark-2{color:var(--el-color-warning-dark-2);}
+      .text-warning-light-3{color:var(--el-color-warning-light-3);}
+      .text-warning-light-5{color:var(--el-color-warning-light-5);}
+      .text-warning-light-7{color:var(--el-color-warning-light-7);}
+      .text-warning-light-8{color:var(--el-color-warning-light-8);}
+      .text-warning-light-9{color:var(--el-color-warning-light-9);}"
+    `);
+  });
+
+  test('theme colors with colors', async () => {
+    const uno = createGenerator({
+      presets: [presetUno(), presetElementPlus({ preferCssVariables: false })],
     });
     const themeColors = ['primary', 'success', 'warning', 'error', 'danger', 'info'];
     const steps = [
@@ -156,7 +221,6 @@ describe('theme', () => {
     ];
     const targets = textColors.map((textColor) => `text-${textColor}`);
     const { css } = await uno.generate(targets.join('\n'));
-    console.log('css', css);
     expect(css).toMatchInlineSnapshot(`
       "/* layer: preflights */
       *,::before,::after{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 rgba(0,0,0,0);--un-ring-shadow:0 0 rgba(0,0,0,0);--un-shadow-inset: ;--un-shadow:0 0 rgba(0,0,0,0);--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,0.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: ;}::backdrop{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 rgba(0,0,0,0);--un-ring-shadow:0 0 rgba(0,0,0,0);--un-shadow-inset: ;--un-shadow:0 0 rgba(0,0,0,0);--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,0.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: ;}

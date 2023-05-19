@@ -4,6 +4,21 @@ import type { Theme } from 'unocss/preset-mini';
 
 export interface PresetElementPlusUserCommonOptions {
   /**
+   * Prefer existed css variables or not.
+   *
+   * If true, will try to use css variables first, and you don't need set anything else. You must
+   * follow element-plus design standards then.
+   *
+   * @default true
+   */
+  preferCssVariables?: boolean;
+  /**
+   * The namesapce used to find css variables. This will work when preferCssVariables is true.
+   *
+   * @default el
+   */
+  namespace?: string;
+  /**
    * Base primary color
    *
    * @default #409eff

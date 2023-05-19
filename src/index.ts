@@ -1,8 +1,7 @@
 import { presetTheme } from 'unocss-preset-theme';
 import type { Preset } from 'unocss';
 import type { Theme } from 'unocss/preset-mini';
-import { getLightTheme } from './light';
-import { getDarkTheme } from './dark';
+import { getTheme } from './utils';
 import type { PresetElementPlusThemeOptions, PresetElementPlusUserOptions } from './types';
 
 export function presetElementPlus(options: PresetElementPlusUserOptions = {}): Preset<Theme> {
@@ -10,6 +9,8 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     prefix = '--un-preset-el',
     selectors,
 
+    preferCssVariables = true,
+    namespace = 'el',
     primary = '#409eff',
     success = '#67c23a',
     warning = '#e6a23c',
@@ -22,6 +23,8 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
   } = options;
 
   const commonOptions = {
+    preferCssVariables,
+    namespace,
     primary,
     success,
     warning,
@@ -58,8 +61,8 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     prefix,
     selectors,
     theme: {
-      light: getLightTheme(lightThemeOptions),
-      dark: getDarkTheme(darkThemeOptions),
+      light: getTheme(lightThemeOptions),
+      dark: getTheme(darkThemeOptions),
     },
   });
 }
