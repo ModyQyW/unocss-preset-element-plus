@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.4](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.0.3...v0.0.4) (2023-05-19)
+
+### ⚠ BREAKING CHANGES
+
+* add preferCssVariables & namespace options
+
+### Features
+
+* add preferCssVariables & namespace options ([edbc954](https://github.com/ModyQyW/unocss-preset-element-plus/commit/edbc95463e7fb10ee3c32fa500fb68bbdc2915f0))
+
 ## [0.0.3](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.0.2...v0.0.3) (2023-05-04)
 
 ### Features
