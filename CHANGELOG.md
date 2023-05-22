@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.5](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.0.4...v0.0.5) (2023-05-22)
+
+### Features
+
+* support border color ([9dddcc6](https://github.com/ModyQyW/unocss-preset-element-plus/commit/9dddcc638ba535b4abbaace211a0f09b9ad9436b))
+* support fill color ([6e212a6](https://github.com/ModyQyW/unocss-preset-element-plus/commit/6e212a6528b70412a4e15f24b6fb1090ccd757a0))
+
+### Bug Fixes
+
+* support text color css variables ([2e1f177](https://github.com/ModyQyW/unocss-preset-element-plus/commit/2e1f177c18c4edb3977286606086313e431bf0fe))
+
 ## [0.0.4](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.0.3...v0.0.4) (2023-05-19)
 
 ### ⚠ BREAKING CHANGES
