@@ -42,6 +42,12 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     secondaryText: '#909399',
     placeholderText: '#a8abb2',
     disabledText: '#c0c4cc',
+    baseBorder: '#dcdfe6',
+    lightBorder: '#e4e7ed',
+    lighterBorder: '#ebeef5',
+    extraLightBorder: '#f2f6fc',
+    darkBorder: '#d4d7de',
+    darkerBorder: '#cdd0d6',
     ...light,
   };
 
@@ -54,6 +60,12 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     secondaryText: '#a3a6ad',
     placeholderText: '#8d9095',
     disabledText: '#6c6e72',
+    baseBorder: '#4c4d4f',
+    lightBorder: '#414243',
+    lighterBorder: '#363637',
+    extraLightBorder: '#2b2b2c',
+    darkBorder: '#58585b',
+    darkerBorder: '#636466',
     ...dark,
   };
 

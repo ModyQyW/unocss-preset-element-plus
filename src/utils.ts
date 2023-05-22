@@ -66,6 +66,13 @@ export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
     secondaryText,
     placeholderText,
     disabledText,
+
+    baseBorder,
+    lightBorder,
+    lighterBorder,
+    extraLightBorder,
+    darkBorder,
+    darkerBorder,
   } = options;
 
   return {
@@ -104,6 +111,25 @@ export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
       disabledText: preferCssVariables
         ? getColorWithCssVariable(namespace, 'text-color-disabled')
         : getColorWithColor(disabledText),
+
+      baseBorder: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'border-color')
+        : getColorWithColor(baseBorder),
+      lightBorder: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'border-color-light')
+        : getColorWithColor(lightBorder),
+      lighterBorder: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'border-color-lighter')
+        : getColorWithColor(lighterBorder),
+      extraLightBorder: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'border-color-extra-light')
+        : getColorWithColor(extraLightBorder),
+      darkBorder: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'border-color-dark')
+        : getColorWithColor(darkBorder),
+      darkerBorder: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'border-color-darker')
+        : getColorWithColor(darkerBorder),
     },
   };
 };
