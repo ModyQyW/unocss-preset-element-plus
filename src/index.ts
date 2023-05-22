@@ -48,6 +48,13 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     extraLightBorder: '#f2f6fc',
     darkBorder: '#d4d7de',
     darkerBorder: '#cdd0d6',
+    baseFill: '#f0f2f5',
+    lightFill: '#f5f7fa',
+    lighterFill: '#fafafa',
+    extraLightFill: '#fafcff',
+    blankFill: '#ffffff',
+    darkFill: '#ebedf0',
+    darkerFill: '#e6e8eb',
     ...light,
   };
 
@@ -66,6 +73,13 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     extraLightBorder: '#2b2b2c',
     darkBorder: '#58585b',
     darkerBorder: '#636466',
+    baseFill: '#303030',
+    lightFill: '#262727',
+    lighterFill: '#1d1d1d',
+    extraLightFill: '#191919',
+    blankFill: 'transparent',
+    darkFill: '#39393a',
+    darkerFill: '#424243',
     ...dark,
   };
 

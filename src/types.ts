@@ -62,81 +62,123 @@ export interface PresetElementPlusUserThemeOptions {
   /**
    * Used to generate theme light colors. Used when preferCssVariables is false.
    *
-   * By default white for light theme, #141414 for dark theme
+   * By default white for light theme, #141414 for dark theme.
    */
   lightenColor?: ColorInput;
   /**
    * Used to generate theme dark colors. Used when preferCssVariables is false.
    *
-   * By default black for light theme, white for dark theme
+   * By default black for light theme, white for dark theme.
    */
   darkenColor?: ColorInput;
   /**
    * Primary text color. Used when preferCssVariables is false.
    *
-   * By default #303133 for light theme, #e5eaf3 for dark theme
+   * By default #303133 for light theme, #e5eaf3 for dark theme.
    */
   primaryText?: ColorInput;
   /**
    * Regular text color. Used when preferCssVariables is false.
    *
-   * By default #606266 for light theme, #cfd3dc for dark theme
+   * By default #606266 for light theme, #cfd3dc for dark theme.
    */
   regularText?: ColorInput;
   /**
    * Secondary text color. Used when preferCssVariables is false.
    *
-   * By default #909399 for light theme, #a3a6ad for dark theme
+   * By default #909399 for light theme, #a3a6ad for dark theme.
    */
   secondaryText?: ColorInput;
   /**
    * Placeholder text color. Used when preferCssVariables is false.
    *
-   * By default #a8abb2 for light theme, #8d9095 for dark theme
+   * By default #a8abb2 for light theme, #8d9095 for dark theme.
    */
   placeholderText?: ColorInput;
   /**
    * Disabled text color. Used when preferCssVariables is false.
    *
-   * By default #c0c4cc for light theme, #6c6e72 for dark theme
+   * By default #c0c4cc for light theme, #6c6e72 for dark theme.
    */
   disabledText?: ColorInput;
   /**
    * Base border color. Used when preferCssVariables is false.
    *
-   * By default #dcdfe6 for light theme, #4c4d4f for dark theme
+   * By default #dcdfe6 for light theme, #4c4d4f for dark theme.
    */
   baseBorder?: ColorInput;
   /**
    * Light border color. Used when preferCssVariables is false.
    *
-   * By default #e4e7ed for light theme, #414243 for dark theme
+   * By default #e4e7ed for light theme, #414243 for dark theme.
    */
   lightBorder?: ColorInput;
   /**
    * Lighter border color. Used when preferCssVariables is false.
    *
-   * By default #ebeef5 for light theme, #363637 for dark theme
+   * By default #ebeef5 for light theme, #363637 for dark theme.
    */
   lighterBorder?: ColorInput;
   /**
    * Extra light border color. Used when preferCssVariables is false.
    *
-   * By default #f2f6fc for light theme, #2b2b2c for dark theme
+   * By default #f2f6fc for light theme, #2b2b2c for dark theme.
    */
   extraLightBorder?: ColorInput;
   /**
    * Dark border color. Used when preferCssVariables is false.
    *
-   * By default #d4d7de for light theme, #58585b for dark theme
+   * By default #d4d7de for light theme, #58585b for dark theme.
    */
   darkBorder?: ColorInput;
   /**
    * Darker border color. Used when preferCssVariables is false.
    *
-   * By default #cdd0d6 for light theme, #636466 for dark theme
+   * By default #cdd0d6 for light theme, #636466 for dark theme.
    */
   darkerBorder?: ColorInput;
+  /**
+   * Base fill color. Used when preferCssVariables is false.
+   *
+   * By default #f0f2f5 for light theme, #303030 for dark theme.
+   */
+  baseFill?: ColorInput;
+  /**
+   * light fill color. Used when preferCssVariables is false.
+   *
+   * By default #f5f7fa for light theme, #262727 for dark theme.
+   */
+  lightFill?: ColorInput;
+  /**
+   * Lighter fill color. Used when preferCssVariables is false.
+   *
+   * By default #fafafa for light theme, #1d1d1d for dark theme.
+   */
+  lighterFill?: ColorInput;
+  /**
+   * Extra light fill color. Used when preferCssVariables is false.
+   *
+   * By default #fafcff for light theme, #191919 for dark theme.
+   */
+  extraLightFill?: ColorInput;
+  /**
+   * Blank fill color. Used when preferCssVariables is false.
+   *
+   * By default #ffffff for light theme, transparent for dark theme.
+   */
+  blankFill?: ColorInput;
+  /**
+   * Dark fill color. Used when preferCssVariables is false.
+   *
+   * By default #ebedf0 for light theme, #39393a for dark theme.
+   */
+  darkFill?: ColorInput;
+  /**
+   * Darker fill color. Used when preferCssVariables is false.
+   *
+   * By default #e6e8eb for light theme, #424243 for dark theme.
+   */
+  darkerFill?: ColorInput;
 }
 
 export interface PresetElementPlusUserOptions

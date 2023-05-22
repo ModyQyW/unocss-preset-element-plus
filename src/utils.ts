@@ -73,6 +73,14 @@ export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
     extraLightBorder,
     darkBorder,
     darkerBorder,
+
+    baseFill,
+    lightFill,
+    lighterFill,
+    extraLightFill,
+    darkFill,
+    darkerFill,
+    blankFill,
   } = options;
 
   return {
@@ -130,6 +138,28 @@ export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
       darkerBorder: preferCssVariables
         ? getColorWithCssVariable(namespace, 'border-color-darker')
         : getColorWithColor(darkerBorder),
+
+      baseFill: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'fill-color')
+        : getColorWithColor(baseFill),
+      lightFill: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'fill-color-light')
+        : getColorWithColor(lightFill),
+      lighterFill: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'fill-color-lighter')
+        : getColorWithColor(lighterFill),
+      extraLightFill: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'fill-color-extra-light')
+        : getColorWithColor(extraLightFill),
+      blankFill: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'fill-color-blank')
+        : getColorWithColor(blankFill),
+      darkFill: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'fill-color-dark')
+        : getColorWithColor(darkFill),
+      darkerFill: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'fill-color-darker')
+        : getColorWithColor(darkerFill),
     },
   };
 };
