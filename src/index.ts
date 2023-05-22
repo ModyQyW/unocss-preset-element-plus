@@ -55,6 +55,9 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     blankFill: '#ffffff',
     darkFill: '#ebedf0',
     darkerFill: '#e6e8eb',
+    pageBg: '#f2f3f5',
+    baseBg: '#ffffff',
+    overlayBg: '#ffffff',
     ...light,
   };
 
@@ -80,6 +83,9 @@ export function presetElementPlus(options: PresetElementPlusUserOptions = {}): P
     blankFill: 'transparent',
     darkFill: '#39393a',
     darkerFill: '#424243',
+    pageBg: '#0a0a0a',
+    baseBg: '#141414',
+    overlayBg: '#1d1e1f',
     ...dark,
   };
 

@@ -81,6 +81,10 @@ export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
     darkFill,
     darkerFill,
     blankFill,
+
+    pageBg,
+    baseBg,
+    overlayBg,
   } = options;
 
   return {
@@ -160,6 +164,16 @@ export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
       darkerFill: preferCssVariables
         ? getColorWithCssVariable(namespace, 'fill-color-darker')
         : getColorWithColor(darkerFill),
+
+      pageBg: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'bg-color-page')
+        : getColorWithColor(pageBg),
+      baseBg: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'bg-color')
+        : getColorWithColor(baseBg),
+      overlayBg: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'bg-color-overlay')
+        : getColorWithColor(overlayBg),
     },
   };
 };

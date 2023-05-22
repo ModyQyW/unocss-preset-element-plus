@@ -179,6 +179,24 @@ export interface PresetElementPlusUserThemeOptions {
    * By default #e6e8eb for light theme, #424243 for dark theme.
    */
   darkerFill?: ColorInput;
+  /**
+   * Page background color. Used when preferCssVariables is false.
+   *
+   * By default #f2f3f5 for light theme, #0a0a0a for dark theme.
+   */
+  pageBg?: ColorInput;
+  /**
+   * Base background color. Used when preferCssVariables is false.
+   *
+   * By default #ffffff for light theme, #141414 for dark theme.
+   */
+  baseBg?: ColorInput;
+  /**
+   * Overlay background color. Used when preferCssVariables is false.
+   *
+   * By default #ffffff for light theme, #1d1e1f for dark theme.
+   */
+  overlayBg?: ColorInput;
 }
 
 export interface PresetElementPlusUserOptions
