@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.6](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.0.5...v0.0.6) (2023-05-22)
+
+### Features
+
+* support background color ([70a5c96](https://github.com/ModyQyW/unocss-preset-element-plus/commit/70a5c96f6f0ea90fc5faa2f83b71e7c81bf0af96))
+
 ## [0.0.5](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.0.4...v0.0.5) (2023-05-22)
 
 ### Features
