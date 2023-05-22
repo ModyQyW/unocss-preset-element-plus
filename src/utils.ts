@@ -2,18 +2,23 @@ import { TinyColor, type ColorInput } from '@ctrl/tinycolor';
 import type { Theme } from 'unocss/preset-mini';
 import type { PresetElementPlusThemeOptions } from './types';
 
+export const getColorWithCssVariable = (namespace: string, name: string) =>
+  `var(--${namespace}-${name})`;
+
+export const getColorWithColor = (color: ColorInput) => new TinyColor(color).toHexString();
+
 export const getThemeColorsWithCssVariables = (namespace: string, name: string) => {
   return {
-    DEFAULT: `var(--${namespace}-color-${name})`,
+    DEFAULT: getColorWithCssVariable(namespace, `color-${name}`),
     light: {
-      3: `var(--${namespace}-color-${name}-light-3)`,
-      5: `var(--${namespace}-color-${name}-light-5)`,
-      7: `var(--${namespace}-color-${name}-light-7)`,
-      8: `var(--${namespace}-color-${name}-light-8)`,
-      9: `var(--${namespace}-color-${name}-light-9)`,
+      3: getColorWithCssVariable(namespace, `color-${name}-light-3`),
+      5: getColorWithCssVariable(namespace, `color-${name}-light-5`),
+      7: getColorWithCssVariable(namespace, `color-${name}-light-7`),
+      8: getColorWithCssVariable(namespace, `color-${name}-light-8`),
+      9: getColorWithCssVariable(namespace, `color-${name}-light-9`),
     },
     dark: {
-      2: `var(--${namespace}-color-${name}-dark-2)`,
+      2: getColorWithCssVariable(namespace, `color-${name}-dark-2`),
     },
   };
 };
@@ -42,8 +47,6 @@ export const getThemeColorsWithColor = (
     ),
   };
 };
-
-export const getHexColor = (color: ColorInput) => new TinyColor(color).toHexString();
 
 export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
   const {
@@ -86,11 +89,21 @@ export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
         ? getThemeColorsWithCssVariables(namespace, 'info')
         : getThemeColorsWithColor(info, lightenColor, darkenColor),
 
-      primaryText: getHexColor(primaryText),
-      regularText: getHexColor(regularText),
-      secondaryText: getHexColor(secondaryText),
-      placeholderText: getHexColor(placeholderText),
-      disabledText: getHexColor(disabledText),
+      primaryText: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'text-color-primary')
+        : getColorWithColor(primaryText),
+      regularText: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'text-color-regular')
+        : getColorWithColor(regularText),
+      secondaryText: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'text-color-secondary')
+        : getColorWithColor(secondaryText),
+      placeholderText: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'text-color-placeholder')
+        : getColorWithColor(placeholderText),
+      disabledText: preferCssVariables
+        ? getColorWithCssVariable(namespace, 'text-color-disabled')
+        : getColorWithColor(disabledText),
     },
   };
 };
