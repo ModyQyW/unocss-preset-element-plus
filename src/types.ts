@@ -15,7 +15,7 @@ export interface PresetElementPlusUserCommonOptions {
    */
   preferCssVariables?: boolean;
   /**
-   * The namesapce used to find css variables. Used when preferCssVariables is true.
+   * The namespace used to find css variables. Used when preferCssVariables is true.
    *
    * @default el
    */
