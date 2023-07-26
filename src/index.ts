@@ -1,6 +1,6 @@
 import { presetTheme } from 'unocss-preset-theme';
 import type { Preset } from 'unocss';
-import type { Theme } from 'unocss/preset-mini';
+import type { Theme } from 'unocss/preset-uno';
 import { getTheme } from './utils';
 import type { PresetElementPlusThemeOptions, PresetElementPlusUserOptions } from './types';
 
