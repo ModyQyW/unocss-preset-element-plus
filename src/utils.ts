@@ -1,6 +1,17 @@
 import { TinyColor, type ColorInput } from '@ctrl/tinycolor';
 import type { Theme } from 'unocss/preset-mini';
-import type { PresetElementPlusThemeOptions } from './types';
+import type {
+  PresetElementPlusUserOptions,
+  PresetElementPlusThemeOptions,
+  PresetElementPlusThemeName,
+} from './types';
+import { defaults } from './defaults';
+
+export const getOptionValue = <T = string | number | boolean | string[] | ColorInput>(
+  userOptions: PresetElementPlusUserOptions,
+  themeName: PresetElementPlusThemeName,
+  key: keyof PresetElementPlusThemeOptions,
+) => (userOptions[themeName]?.[key] ?? userOptions[key] ?? defaults[themeName][key]) as T;
 
 export const getCssValue = (namespace: string, name: string) => `var(--${namespace}-${name})`;
 
@@ -47,126 +58,191 @@ export const getThemeColorsWithColor = (
   };
 };
 
-export const getTheme = (options: PresetElementPlusThemeOptions): Theme => {
-  const {
-    preferCssVariables,
-    namespace,
-    primary,
-    success,
-    warning,
-    error,
-    danger,
-    info,
+export const getTheme = (
+  userOptions: PresetElementPlusUserOptions,
+  themeName: PresetElementPlusThemeName,
+): Theme => {
+  const { preferCssVariables = true, namespace = 'el' } = userOptions;
 
-    lightenColor,
-    darkenColor,
-    primaryText,
-    regularText,
-    secondaryText,
-    placeholderText,
-    disabledText,
+  const lightenColor = getOptionValue<ColorInput>(
+    userOptions,
+    themeName,
+    'lightenColor',
+  ) as ColorInput;
+  const darkenColor = getOptionValue<ColorInput>(userOptions, themeName, 'darkenColor');
 
-    baseBorder,
-    lightBorder,
-    lighterBorder,
-    extraLightBorder,
-    darkBorder,
-    darkerBorder,
+  const primary = preferCssVariables
+    ? getThemeColorsWithCssVariables(namespace, 'primary')
+    : getThemeColorsWithColor(
+        getOptionValue(userOptions, themeName, 'primary'),
+        lightenColor,
+        darkenColor,
+      );
+  const success = preferCssVariables
+    ? getThemeColorsWithCssVariables(namespace, 'success')
+    : getThemeColorsWithColor(
+        getOptionValue(userOptions, themeName, 'success'),
+        lightenColor,
+        darkenColor,
+      );
+  const warning = preferCssVariables
+    ? getThemeColorsWithCssVariables(namespace, 'warning')
+    : getThemeColorsWithColor(
+        getOptionValue(userOptions, themeName, 'warning'),
+        lightenColor,
+        darkenColor,
+      );
+  const error = preferCssVariables
+    ? getThemeColorsWithCssVariables(namespace, 'error')
+    : getThemeColorsWithColor(
+        getOptionValue(userOptions, themeName, 'error'),
+        lightenColor,
+        darkenColor,
+      );
+  const danger = preferCssVariables
+    ? getThemeColorsWithCssVariables(namespace, 'danger')
+    : getThemeColorsWithColor(
+        getOptionValue(userOptions, themeName, 'danger'),
+        lightenColor,
+        darkenColor,
+      );
+  const info = preferCssVariables
+    ? getThemeColorsWithCssVariables(namespace, 'info')
+    : getThemeColorsWithColor(
+        getOptionValue(userOptions, themeName, 'info'),
+        lightenColor,
+        darkenColor,
+      );
 
-    baseFill,
-    lightFill,
-    lighterFill,
-    extraLightFill,
-    darkFill,
-    darkerFill,
-    blankFill,
+  const primaryText = preferCssVariables
+    ? getCssValue(namespace, 'text-color-primary')
+    : getHexColor(getOptionValue(userOptions, themeName, 'primaryText'));
+  const regularText = preferCssVariables
+    ? getCssValue(namespace, 'text-color-regular')
+    : getHexColor(getOptionValue(userOptions, themeName, 'regularText'));
+  const secondaryText = preferCssVariables
+    ? getCssValue(namespace, 'text-color-secondary')
+    : getHexColor(getOptionValue(userOptions, themeName, 'secondaryText'));
+  const placeholderText = preferCssVariables
+    ? getCssValue(namespace, 'text-color-placeholder')
+    : getHexColor(getOptionValue(userOptions, themeName, 'placeholderText'));
+  const disabledText = preferCssVariables
+    ? getCssValue(namespace, 'text-color-disabled')
+    : getHexColor(getOptionValue(userOptions, themeName, 'disabledText'));
 
-    pageBg,
-    baseBg,
-    overlayBg,
-  } = options;
+  const baseBorder = preferCssVariables
+    ? getCssValue(namespace, 'border-color')
+    : getHexColor(getOptionValue(userOptions, themeName, 'baseBorder'));
+  const lightBorder = preferCssVariables
+    ? getCssValue(namespace, 'border-color-light')
+    : getHexColor(getOptionValue(userOptions, themeName, 'lightBorder'));
+  const lighterBorder = preferCssVariables
+    ? getCssValue(namespace, 'border-color-lighter')
+    : getHexColor(getOptionValue(userOptions, themeName, 'lighterBorder'));
+  const extraLightBorder = preferCssVariables
+    ? getCssValue(namespace, 'border-color-extra-light')
+    : getHexColor(getOptionValue(userOptions, themeName, 'extraLightBorder'));
+  const darkBorder = preferCssVariables
+    ? getCssValue(namespace, 'border-color-dark')
+    : getHexColor(getOptionValue(userOptions, themeName, 'darkBorder'));
+  const darkerBorder = preferCssVariables
+    ? getCssValue(namespace, 'border-color-darker')
+    : getHexColor(getOptionValue(userOptions, themeName, 'darkerBorder'));
+
+  const baseFill = preferCssVariables
+    ? getCssValue(namespace, 'fill-color')
+    : getHexColor(getOptionValue(userOptions, themeName, 'baseFill'));
+  const lightFill = preferCssVariables
+    ? getCssValue(namespace, 'fill-color-light')
+    : getHexColor(getOptionValue(userOptions, themeName, 'lightFill'));
+  const lighterFill = preferCssVariables
+    ? getCssValue(namespace, 'fill-color-lighter')
+    : getHexColor(getOptionValue(userOptions, themeName, 'lighterFill'));
+  const extraLightFill = preferCssVariables
+    ? getCssValue(namespace, 'fill-color-extra-light')
+    : getHexColor(getOptionValue(userOptions, themeName, 'extraLightFill'));
+  const blankFill = preferCssVariables
+    ? getCssValue(namespace, 'fill-color-blank')
+    : getHexColor(getOptionValue(userOptions, themeName, 'blankFill'));
+  const darkFill = preferCssVariables
+    ? getCssValue(namespace, 'fill-color-dark')
+    : getHexColor(getOptionValue(userOptions, themeName, 'darkFill'));
+  const darkerFill = preferCssVariables
+    ? getCssValue(namespace, 'fill-color-darker')
+    : getHexColor(getOptionValue(userOptions, themeName, 'darkerFill'));
+
+  const pageBg = preferCssVariables
+    ? getCssValue(namespace, 'bg-color-page')
+    : getHexColor(getOptionValue(userOptions, themeName, 'pageBg'));
+  const baseBg = preferCssVariables
+    ? getCssValue(namespace, 'bg-color')
+    : getHexColor(getOptionValue(userOptions, themeName, 'baseBg'));
+  const overlayBg = preferCssVariables
+    ? getCssValue(namespace, 'bg-color-overlay')
+    : getHexColor(getOptionValue(userOptions, themeName, 'overlayBg'));
+
+  const overrideShadow = getOptionValue<boolean>(userOptions, themeName, 'overrideShadow');
+  const baseShadow = preferCssVariables
+    ? getCssValue(namespace, 'box-shadow')
+    : getOptionValue<string | string[]>(userOptions, themeName, 'baseShadow');
+  const lightShadow = preferCssVariables
+    ? getCssValue(namespace, 'box-shadow-light')
+    : getOptionValue<string | string[]>(userOptions, themeName, 'lightShadow');
+  const lighterShadow = preferCssVariables
+    ? getCssValue(namespace, 'box-shadow-lighter')
+    : getOptionValue<string | string[]>(userOptions, themeName, 'lighterShadow');
+  const darkShadow = preferCssVariables
+    ? getCssValue(namespace, 'box-shadow-dark')
+    : getOptionValue<string | string[]>(userOptions, themeName, 'darkShadow');
 
   return {
     colors: {
-      primary: preferCssVariables
-        ? getThemeColorsWithCssVariables(namespace, 'primary')
-        : getThemeColorsWithColor(primary, lightenColor, darkenColor),
-      success: preferCssVariables
-        ? getThemeColorsWithCssVariables(namespace, 'success')
-        : getThemeColorsWithColor(success, lightenColor, darkenColor),
-      warning: preferCssVariables
-        ? getThemeColorsWithCssVariables(namespace, 'warning')
-        : getThemeColorsWithColor(warning, lightenColor, darkenColor),
-      error: preferCssVariables
-        ? getThemeColorsWithCssVariables(namespace, 'error')
-        : getThemeColorsWithColor(error, lightenColor, darkenColor),
-      danger: preferCssVariables
-        ? getThemeColorsWithCssVariables(namespace, 'danger')
-        : getThemeColorsWithColor(danger, lightenColor, darkenColor),
-      info: preferCssVariables
-        ? getThemeColorsWithCssVariables(namespace, 'info')
-        : getThemeColorsWithColor(info, lightenColor, darkenColor),
+      primary,
+      success,
+      warning,
+      error,
+      danger,
+      info,
 
-      primaryText: preferCssVariables
-        ? getCssValue(namespace, 'text-color-primary')
-        : getHexColor(primaryText),
-      regularText: preferCssVariables
-        ? getCssValue(namespace, 'text-color-regular')
-        : getHexColor(regularText),
-      secondaryText: preferCssVariables
-        ? getCssValue(namespace, 'text-color-secondary')
-        : getHexColor(secondaryText),
-      placeholderText: preferCssVariables
-        ? getCssValue(namespace, 'text-color-placeholder')
-        : getHexColor(placeholderText),
-      disabledText: preferCssVariables
-        ? getCssValue(namespace, 'text-color-disabled')
-        : getHexColor(disabledText),
+      primaryText,
+      regularText,
+      secondaryText,
+      placeholderText,
+      disabledText,
 
-      baseBorder: preferCssVariables
-        ? getCssValue(namespace, 'border-color')
-        : getHexColor(baseBorder),
-      lightBorder: preferCssVariables
-        ? getCssValue(namespace, 'border-color-light')
-        : getHexColor(lightBorder),
-      lighterBorder: preferCssVariables
-        ? getCssValue(namespace, 'border-color-lighter')
-        : getHexColor(lighterBorder),
-      extraLightBorder: preferCssVariables
-        ? getCssValue(namespace, 'border-color-extra-light')
-        : getHexColor(extraLightBorder),
-      darkBorder: preferCssVariables
-        ? getCssValue(namespace, 'border-color-dark')
-        : getHexColor(darkBorder),
-      darkerBorder: preferCssVariables
-        ? getCssValue(namespace, 'border-color-darker')
-        : getHexColor(darkerBorder),
+      baseBorder,
+      lightBorder,
+      lighterBorder,
+      extraLightBorder,
+      darkBorder,
+      darkerBorder,
 
-      baseFill: preferCssVariables ? getCssValue(namespace, 'fill-color') : getHexColor(baseFill),
-      lightFill: preferCssVariables
-        ? getCssValue(namespace, 'fill-color-light')
-        : getHexColor(lightFill),
-      lighterFill: preferCssVariables
-        ? getCssValue(namespace, 'fill-color-lighter')
-        : getHexColor(lighterFill),
-      extraLightFill: preferCssVariables
-        ? getCssValue(namespace, 'fill-color-extra-light')
-        : getHexColor(extraLightFill),
-      blankFill: preferCssVariables
-        ? getCssValue(namespace, 'fill-color-blank')
-        : getHexColor(blankFill),
-      darkFill: preferCssVariables
-        ? getCssValue(namespace, 'fill-color-dark')
-        : getHexColor(darkFill),
-      darkerFill: preferCssVariables
-        ? getCssValue(namespace, 'fill-color-darker')
-        : getHexColor(darkerFill),
+      baseFill,
+      lightFill,
+      lighterFill,
+      extraLightFill,
+      darkFill,
+      darkerFill,
+      blankFill,
 
-      pageBg: preferCssVariables ? getCssValue(namespace, 'bg-color-page') : getHexColor(pageBg),
-      baseBg: preferCssVariables ? getCssValue(namespace, 'bg-color') : getHexColor(baseBg),
-      overlayBg: preferCssVariables
-        ? getCssValue(namespace, 'bg-color-overlay')
-        : getHexColor(overlayBg),
+      pageBg,
+      baseBg,
+      overlayBg,
+    },
+
+    boxShadow: {
+      base: baseShadow,
+      light: lightShadow,
+      lighter: lighterShadow,
+      dark: darkShadow,
+      ...(overrideShadow
+        ? {
+            xs: lighterShadow,
+            sm: lightShadow,
+            md: baseShadow,
+            lg: darkShadow,
+          }
+        : {}),
     },
   };
 };
