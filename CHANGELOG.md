@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.1](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.2.0...v0.2.1) (2023-08-18)
+
+### Features
+
+* support breakpoints ([ecdcaab](https://github.com/ModyQyW/unocss-preset-element-plus/commit/ecdcaabde15e82b32cacd5b38a45aa7743c65bcc))
+* support empty namespace ([371df48](https://github.com/ModyQyW/unocss-preset-element-plus/commit/371df48e519b4ea080b66cd12ae342cc7bee7ec1))
+
 ## [0.2.0](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.1.0...v0.2.0) (2023-08-18)
 
 ### ⚠ BREAKING CHANGES
