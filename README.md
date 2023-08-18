@@ -257,9 +257,11 @@ By default `#ffffff` for light theme, `#1d1e1f` for dark theme.
 
 Should override shadow or not. Defaults to `false`.
 
-If false, only generate `.shadow-base`, `.shadow-light`, `.shadow-lighter` and `.shadow-dark`.
+If false, only generate `.shadow-base`.
 
-If true, also override `.shadow-md` with `.shadow-base`, override `.shadow-sm` with `.shadow-light`, override `.shadow-xs` with `.shadow-lighter` and override `.shadow-lg` with `.shadow-dark`.
+If true, also override `.shadow-light`, `.shadow-lighter` and `.shadow-dark`, override `.shadow-xs` with `.shadow-lighter`, override `.shadow-sm` with `.shadow-light`, override `.shadow-md` with `.shadow-base`, and override `.shadow-lg` with `.shadow-dark`.
+
+You can pass an array specifying what you want to override, e.g. `['light', 'lighter', 'dark', 'xs', 'sm', 'md', 'lg']` for overriding all.
 
 ### baseShadow
 
@@ -271,7 +273,7 @@ By default `0px 12px 32px 4px rgba(0,0,0,.04), 0px 8px 20px rgba(0,0,0,.08)` for
 
 Light box shadow. Used when `preferCssVariables` is false.
 
-By default `0px 0px 12px rgba(0,0,0,.12)` for light theme, `0px 0px 12px rgba(0,0,0,.72)` for \* dark theme.
+By default `0px 0px 12px rgba(0,0,0,.12)` for light theme, `0px 0px 12px rgba(0,0,0,.72)` for dark theme.
 
 ### lighterShadow
 
