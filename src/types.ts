@@ -4,37 +4,37 @@ import type { Theme } from 'unocss/preset-mini';
 
 export interface PresetElementPlusUserThemeOptions {
   /**
-   * Base primary color. Used when `preferCssVariables` is false.
+   * Base primary color. Used when `preferCssVariables` is false. Defaults to `#409eff`.
    *
    * @default #409eff
    */
   primary?: ColorInput;
   /**
-   * Base success color. Used when `preferCssVariables` is false.
+   * Base success color. Used when `preferCssVariables` is false. Defaults to `#67c23a`.
    *
    * @default #67c23a
    */
   success?: ColorInput;
   /**
-   * Base warning color. Used when `preferCssVariables` is false.
+   * Base warning color. Used when `preferCssVariables` is false. Defaults to `#e6a23c`.
    *
    * @default #e6a23c
    */
   warning?: ColorInput;
   /**
-   * Base error color. Used when `preferCssVariables` is false.
+   * Base error color. Used when `preferCssVariables` is false. Defaults to `#f56c6c`.
    *
    * @default #f56c6c
    */
   error?: ColorInput;
   /**
-   * Base danger color. Used when `preferCssVariables` is false.
+   * Base danger color. Used when `preferCssVariables` is false. Defaults to `#f56c6c`.
    *
    * @default #f56c6c
    */
   danger?: ColorInput;
   /**
-   * Base info color. Used when `preferCssVariables` is false.
+   * Base info color. Used when `preferCssVariables` is false. Defaults to `#909399`.
    *
    * @default #909399
    */
@@ -239,37 +239,37 @@ export interface PresetElementPlusUserThemeOptions {
    */
   overrideFontSize?: boolean | ('xl' | 'lg' | 'md' | 'base' | 'sm' | 'xs')[];
   /**
-   * Extra large font size. Used when `preferCssVariables` is false.
+   * Extra large font size. Used when `preferCssVariables` is false. Defaults to `20px`.
    *
    * @default 20px
    */
   extraLargeFontSize?: string;
   /**
-   * Large font size. Used when `preferCssVariables` is false.
+   * Large font size. Used when `preferCssVariables` is false. Defaults to `18px`.
    *
    * @default 18px
    */
   largeFontSize?: string;
   /**
-   * Medium font size. Used when `preferCssVariables` is false.
+   * Medium font size. Used when `preferCssVariables` is false. Defaults to `16px`.
    *
    * @default 16px
    */
   mediumFontSize?: string;
   /**
-   * Basis font size. Used when `preferCssVariables` is false.
+   * Basis font size. Used when `preferCssVariables` is false. Defaults to `14px`.
    *
    * @default 14px
    */
   basisFontSize?: string;
   /**
-   * Small font size. Used when `preferCssVariables` is false.
+   * Small font size. Used when `preferCssVariables` is false. Defaults to `13px`.
    *
    * @default 13px
    */
   smallFontSize?: string;
   /**
-   * Extra small font size. Used when `preferCssVariables` is false.
+   * Extra small font size. Used when `preferCssVariables` is false. Defaults to `12px`.
    *
    * @default 12px
    */

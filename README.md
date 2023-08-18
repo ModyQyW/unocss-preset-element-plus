@@ -285,4 +285,38 @@ By default `0px 0px 6px rgba(0,0,0,.12)` for light theme, `0px 0px 6px rgba(0,0,
 
 Dark box shadow. Used when `preferCssVariables` is false.
 
-By default `0px 16px 48px 16px rgba(0, 0, 0, .08), 0px 12px 32px rgba(0, 0, 0, .12), 0px 8px 16px -8px rgba(0, 0, 0, .16)` for light theme, `0px 16px 48px 16px rgba(0, 0, 0, .72), 0px 12px 32px #000000, 0px 8px 16px -8px #000000` for dark theme,
+By default `0px 16px 48px 16px rgba(0, 0, 0, .08), 0px 12px 32px rgba(0, 0, 0, .12), 0px 8px 16px -8px rgba(0, 0, 0, .16)` for light theme, `0px 16px 48px 16px rgba(0, 0, 0, .72), 0px 12px 32px #000000, 0px 8px 16px -8px #000000` for dark theme.
+
+### overrideFontSize
+
+Should override font size or not. Defaults to `false`.
+
+If false, only generate `.text-extra-large`, `.text-large`, `.text-medium`, `.text-basis`, `.text-small` and `.text-extra-small`.
+
+If true, also override `.text-xl` with `.text-extra-large`, override `.text-lg` with `.text-large`, override `.text-md` with `.text-medium`, override `.text-base` with `.text-basis`, override `.text-sm` with `.text-small`, and override `.text-xs` with `.text-extra-small`.
+
+You can pass an array specifying what you want to override, e.g. `['xl', 'lg', 'md', 'base', 'sm', 'xs']` for overriding all.
+
+### largeFontSize
+
+Extra large font size. Used when `preferCssVariables` is false. Defaults to `20px`.
+
+### largeFontSize
+
+Large font size. Used when `preferCssVariables` is false. Defaults to `18px`.
+
+### mediumFontSize
+
+Medium font size. Used when `preferCssVariables` is false. Defaults to `16px`.
+
+### basisFontSize
+
+Basis font size. Used when `preferCssVariables` is false. Defaults to `14px`.
+
+### smallFontSize
+
+Small font size. Used when `preferCssVariables` is false. Defaults to `13px`.
+
+### extraSmallFontSize
+
+Extra small font size. Used when `preferCssVariables` is false. Defaults to `12px`.
