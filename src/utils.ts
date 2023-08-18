@@ -199,10 +199,10 @@ export const getTheme = (
     ? getCssValue(namespace, 'box-shadow-dark')
     : getOptionValue<string | string[]>(userOptions, themeName, 'darkShadow');
   const boxShadow: Record<string, string | string[]> = { base: baseShadow };
-  const mapping: Record<string, string | string[]> = {
+  const boxShadowMapping: Record<string, string | string[]> = {
     light: lightShadow,
     lighter: lighterShadow,
-    darkShadow: darkShadow,
+    dark: darkShadow,
     xs: lighterShadow,
     sm: lightShadow,
     md: baseShadow,
@@ -210,10 +210,10 @@ export const getTheme = (
   };
   if (Array.isArray(overrideShadow)) {
     for (const item of overrideShadow) {
-      if (mapping[item]) boxShadow[item] = mapping[item];
+      if (boxShadowMapping[item]) boxShadow[item] = boxShadowMapping[item];
     }
   } else if (overrideShadow) {
-    Object.assign(boxShadow, mapping);
+    Object.assign(boxShadow, boxShadowMapping);
   }
 
   return {
@@ -252,5 +252,7 @@ export const getTheme = (
     },
 
     boxShadow,
+
+    fontSize,
   };
 };
