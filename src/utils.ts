@@ -181,7 +181,11 @@ export const getTheme = (
     ? getCssValue(namespace, 'bg-color-overlay')
     : getHexColor(getOptionValue(userOptions, themeName, 'overlayBg'));
 
-  const overrideShadow = getOptionValue<boolean>(userOptions, themeName, 'overrideShadow');
+  const overrideShadow = getOptionValue<boolean | string[]>(
+    userOptions,
+    themeName,
+    'overrideShadow',
+  );
   const baseShadow = preferCssVariables
     ? getCssValue(namespace, 'box-shadow')
     : getOptionValue<string | string[]>(userOptions, themeName, 'baseShadow');
@@ -194,6 +198,23 @@ export const getTheme = (
   const darkShadow = preferCssVariables
     ? getCssValue(namespace, 'box-shadow-dark')
     : getOptionValue<string | string[]>(userOptions, themeName, 'darkShadow');
+  const boxShadow: Record<string, string | string[]> = { base: baseShadow };
+  const mapping: Record<string, string | string[]> = {
+    light: lightShadow,
+    lighter: lighterShadow,
+    darkShadow: darkShadow,
+    xs: lighterShadow,
+    sm: lightShadow,
+    md: baseShadow,
+    lg: darkShadow,
+  };
+  if (Array.isArray(overrideShadow)) {
+    for (const item of overrideShadow) {
+      if (mapping[item]) boxShadow[item] = mapping[item];
+    }
+  } else if (overrideShadow) {
+    Object.assign(boxShadow, mapping);
+  }
 
   return {
     colors: {
@@ -230,19 +251,6 @@ export const getTheme = (
       overlayBg,
     },
 
-    boxShadow: {
-      base: baseShadow,
-      light: lightShadow,
-      lighter: lighterShadow,
-      dark: darkShadow,
-      ...(overrideShadow
-        ? {
-            xs: lighterShadow,
-            sm: lightShadow,
-            md: baseShadow,
-            lg: darkShadow,
-          }
-        : {}),
-    },
+    boxShadow,
   };
 };

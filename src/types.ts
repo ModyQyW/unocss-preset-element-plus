@@ -182,13 +182,16 @@ export interface PresetElementPlusUserThemeOptions {
    *
    * If false, only generate `.shadow-base`, `.shadow-light`, `.shadow-lighter` and `.shadow-dark`.
    *
-   * If true, also override `.shadow-md` with `.shadow-base`, override `.shadow-sm` with
-   * `.shadow-light`, override `.shadow-xs` with `.shadow-lighter` and override `.shadow-lg` with
-   * `.shadow-dark`.
+   * If true, also override `.shadow-light`, `.shadow-lighter` and `.shadow-dark`, override
+   * `.shadow-xs` with `.shadow-lighter`, override `.shadow-sm` with `.shadow-light`, override
+   * `.shadow-md` with `.shadow-base`, and override `.shadow-lg` with `.shadow-dark`.
+   *
+   * You can pass an array specifying what you want to override, e.g. `['light', 'lighter', 'dark',
+   * 'xs', 'sm', 'md', 'lg']` for overriding all.
    *
    * @default false
    */
-  overrideShadow?: boolean;
+  overrideShadow?: boolean | ('light' | 'lighter' | 'dark' | 'xs' | 'sm' | 'md' | 'lg')[];
   /**
    * Base box shadow. Used when `preferCssVariables` is false.
    *
