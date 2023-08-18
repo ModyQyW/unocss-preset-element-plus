@@ -221,6 +221,59 @@ export interface PresetElementPlusUserThemeOptions {
    * 32px #000000, 0px 8px 16px -8px #000000` for dark theme.
    */
   darkShadow?: string | string[];
+  /**
+   * Should override font size or not. Defaults to `false`.
+   *
+   * If false, only generate `.text-extra-large`, `.text-large`, `.text-medium`, `.text-basis`,
+   * `.text-small` and `.text-extra-small`.
+   *
+   * If true, also override `.text-xl` with `.text-extra-large`, override `.text-lg` with
+   * `.text-large`, override `.text-md` with `.text-medium`, override `.text-base` with
+   * `.text-basis`, override `.text-sm` with `.text-small`, and override `.text-xs` with
+   * `.text-extra-small`.
+   *
+   * You can pass an array specifying what you want to override, e.g. `['xl', 'lg', 'md', 'base',
+   * 'sm', 'xs']` for overriding all.
+   *
+   * @default false
+   */
+  overrideFontSize?: boolean | ('xl' | 'lg' | 'md' | 'base' | 'sm' | 'xs')[];
+  /**
+   * Extra large font size. Used when `preferCssVariables` is false.
+   *
+   * @default 20px
+   */
+  extraLargeFontSize?: string;
+  /**
+   * Large font size. Used when `preferCssVariables` is false.
+   *
+   * @default 18px
+   */
+  largeFontSize?: string;
+  /**
+   * Medium font size. Used when `preferCssVariables` is false.
+   *
+   * @default 16px
+   */
+  mediumFontSize?: string;
+  /**
+   * Basis font size. Used when `preferCssVariables` is false.
+   *
+   * @default 14px
+   */
+  basisFontSize?: string;
+  /**
+   * Small font size. Used when `preferCssVariables` is false.
+   *
+   * @default 13px
+   */
+  smallFontSize?: string;
+  /**
+   * Extra small font size. Used when `preferCssVariables` is false.
+   *
+   * @default 12px
+   */
+  extraSmallFontSize?: string;
 }
 
 export interface PresetElementPlusUserCommonOptions

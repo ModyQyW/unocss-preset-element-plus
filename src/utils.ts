@@ -216,6 +216,53 @@ export const getTheme = (
     Object.assign(boxShadow, boxShadowMapping);
   }
 
+  const overrideFontSize = getOptionValue<boolean | string[]>(
+    userOptions,
+    themeName,
+    'overrideFontSize',
+  );
+  const extraLargeFontSize = preferCssVariables
+    ? getCssValue(namespace, 'font-size-extra-large')
+    : getOptionValue<string>(userOptions, themeName, 'extraLargeFontSize');
+  const largeFontSize = preferCssVariables
+    ? getCssValue(namespace, 'font-size-large')
+    : getOptionValue<string>(userOptions, themeName, 'largeFontSize');
+  const mediumFontSize = preferCssVariables
+    ? getCssValue(namespace, 'font-size-medium')
+    : getOptionValue<string>(userOptions, themeName, 'mediumFontSize');
+  const basisFontSize = preferCssVariables
+    ? getCssValue(namespace, 'font-size-base')
+    : getOptionValue<string>(userOptions, themeName, 'basisFontSize');
+  const smallFontSize = preferCssVariables
+    ? getCssValue(namespace, 'font-size-small')
+    : getOptionValue<string>(userOptions, themeName, 'smallFontSize');
+  const extraSmallFontSize = preferCssVariables
+    ? getCssValue(namespace, 'font-size-extra-small')
+    : getOptionValue<string>(userOptions, themeName, 'extraSmallFontSize');
+  const fontSize: Record<string, string> = {
+    'extra-large': extraLargeFontSize,
+    large: largeFontSize,
+    medium: mediumFontSize,
+    basis: basisFontSize,
+    small: smallFontSize,
+    'extra-small': extraSmallFontSize,
+  };
+  const fontSizeMapping: Record<string, string> = {
+    xl: extraLargeFontSize,
+    lg: largeFontSize,
+    md: mediumFontSize,
+    base: basisFontSize,
+    sm: smallFontSize,
+    xs: extraSmallFontSize,
+  };
+  if (Array.isArray(overrideFontSize)) {
+    for (const item of overrideFontSize) {
+      if (fontSizeMapping[item]) fontSize[item] = fontSizeMapping[item];
+    }
+  } else if (overrideFontSize) {
+    Object.assign(fontSize, fontSizeMapping);
+  }
+
   return {
     colors: {
       primary,
