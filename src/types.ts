@@ -6,37 +6,37 @@ export interface PresetElementPlusUserThemeOptions {
   /**
    * Base primary color. Used when `preferCssVariables` is false. Defaults to `#409eff`.
    *
-   * @default #409eff
+   * @default '#409eff'
    */
   primary?: ColorInput;
   /**
    * Base success color. Used when `preferCssVariables` is false. Defaults to `#67c23a`.
    *
-   * @default #67c23a
+   * @default '#67c23a'
    */
   success?: ColorInput;
   /**
    * Base warning color. Used when `preferCssVariables` is false. Defaults to `#e6a23c`.
    *
-   * @default #e6a23c
+   * @default '#e6a23c'
    */
   warning?: ColorInput;
   /**
    * Base error color. Used when `preferCssVariables` is false. Defaults to `#f56c6c`.
    *
-   * @default #f56c6c
+   * @default '#f56c6c'
    */
   error?: ColorInput;
   /**
    * Base danger color. Used when `preferCssVariables` is false. Defaults to `#f56c6c`.
    *
-   * @default #f56c6c
+   * @default '#f56c6c'
    */
   danger?: ColorInput;
   /**
    * Base info color. Used when `preferCssVariables` is false. Defaults to `#909399`.
    *
-   * @default #909399
+   * @default '#909399'
    */
   info?: ColorInput;
   /**
@@ -241,37 +241,37 @@ export interface PresetElementPlusUserThemeOptions {
   /**
    * Extra large font size. Used when `preferCssVariables` is false. Defaults to `20px`.
    *
-   * @default 20px
+   * @default '20px'
    */
   extraLargeFontSize?: string;
   /**
    * Large font size. Used when `preferCssVariables` is false. Defaults to `18px`.
    *
-   * @default 18px
+   * @default '18px'
    */
   largeFontSize?: string;
   /**
    * Medium font size. Used when `preferCssVariables` is false. Defaults to `16px`.
    *
-   * @default 16px
+   * @default '16px'
    */
   mediumFontSize?: string;
   /**
    * Basis font size. Used when `preferCssVariables` is false. Defaults to `14px`.
    *
-   * @default 14px
+   * @default '14px'
    */
   basisFontSize?: string;
   /**
    * Small font size. Used when `preferCssVariables` is false. Defaults to `13px`.
    *
-   * @default 13px
+   * @default '13px'
    */
   smallFontSize?: string;
   /**
    * Extra small font size. Used when `preferCssVariables` is false. Defaults to `12px`.
    *
-   * @default 12px
+   * @default '12px'
    */
   extraSmallFontSize?: string;
 }
@@ -280,7 +280,7 @@ export interface PresetElementPlusUserCommonOptions
   extends Omit<PresetThemeOptions<Theme>, 'theme'>,
     PresetElementPlusUserThemeOptions {
   /**
-   * Prefer existed css variables or not.
+   * Prefer existed css variables or not. Defaults to `true`.
    *
    * If true, use element-plus css variables and you have to follow element-plus design standards.
    *
@@ -293,9 +293,10 @@ export interface PresetElementPlusUserCommonOptions
    */
   preferCssVariables?: boolean;
   /**
-   * The namespace used to find css variables. Used when `preferCssVariables` is true.
+   * The namespace used to find css variables. Used when `preferCssVariables` is true. Defaults to
+   * `el`.
    *
-   * @default el
+   * @default 'el'
    */
   namespace?: string;
 }
