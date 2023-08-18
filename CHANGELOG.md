@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.1.0...v0.2.0) (2023-08-18)
+
+### ⚠ BREAKING CHANGES
+
+* **box-shadow:** update box-shadow settings, allow specifying
+
+### Features
+
+* **box-shadow:** update box-shadow settings, allow specifying ([68e446d](https://github.com/ModyQyW/unocss-preset-element-plus/commit/68e446ddece49b914f82d681a00a7f95f2b5a213))
+* support font-size ([7afda55](https://github.com/ModyQyW/unocss-preset-element-plus/commit/7afda55be2086c625e13a42d3439f619713e9ce5))
+
+### Bug Fixes
+
+* fix box-shadow generate ([3d2f6a4](https://github.com/ModyQyW/unocss-preset-element-plus/commit/3d2f6a4ebd2b2134a8ec941e53e50918200deebd))
+
 ## [0.1.0](https://github.com/ModyQyW/unocss-preset-element-plus/compare/v0.0.7...v0.1.0) (2023-08-14)
 
 ### Features
