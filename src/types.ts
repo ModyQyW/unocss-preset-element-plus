@@ -180,7 +180,7 @@ export interface PresetElementPlusUserThemeOptions {
   /**
    * Should override shadow or not. Defaults to `false`.
    *
-   * If false, only generate `.shadow-base`, `.shadow-light`, `.shadow-lighter` and `.shadow-dark`.
+   * If false, only generate `.shadow-base`.
    *
    * If true, also override `.shadow-light`, `.shadow-lighter` and `.shadow-dark`, override
    * `.shadow-xs` with `.shadow-lighter`, override `.shadow-sm` with `.shadow-light`, override
