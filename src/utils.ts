@@ -13,7 +13,8 @@ export const getOptionValue = <T = string | number | boolean | string[] | ColorI
   key: keyof PresetElementPlusThemeOptions,
 ) => (userOptions[themeName]?.[key] ?? userOptions[key] ?? defaults[themeName][key]) as T;
 
-export const getCssValue = (namespace: string, name: string) => `var(--${namespace}-${name})`;
+export const getCssValue = (namespace: string, name: string) =>
+  namespace ? `var(--${namespace}-${name})` : `var(--${name})`;
 
 export const getHexColor = (color: ColorInput) => new TinyColor(color).toHexString();
 
