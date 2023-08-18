@@ -299,6 +299,20 @@ export interface PresetElementPlusUserCommonOptions
    * @default 'el'
    */
   namespace?: string;
+  /**
+   * Breakpoints. Defaults to `{ xs: '0px', sm: '768px', md: '992px', lg: '1200px', xl: '1920px',
+   * '2xl': '2560px, xxl: '2560px' }`.
+   *
+   * @default { xs: '0px';
+   *   sm: '768px';
+   *   md: '992px';
+   *   lg: '1200px';
+   *   xl: '1920px';
+   *   '2xl': '2560px';
+   *   xxl: '2560px';
+   * }
+   */
+  breakpoints?: Record<string, string>;
 }
 
 export interface PresetElementPlusUserOptions extends PresetElementPlusUserCommonOptions {
