@@ -1,7 +1,5 @@
 # unocss-preset-element-plus
 
-**WIP**
-
 This preset will help you make [element-plus](https://element-plus.org/) and [unocss](https://unocss.dev/) work together. Based on [unocss-preset-theme](https://github.com/Dunqing/unocss-preset-theme).
 
 ## Installation
